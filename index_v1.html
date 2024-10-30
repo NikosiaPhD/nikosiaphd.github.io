@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Poggers Website</title>
+    <style>
+        @font-face {
+            font-family: cooper-black;
+            src: url(cooper-black.ttf);
+        }
+
+        body {
+            font-family: cooper-black;
+            background-color: #121212;
+            color: #121212;
+            font-size: 36px;
+            filter: brightness(0.8);
+            position: relative;
+        }
+
+        #panda-image {
+            width: 40px;
+            height: 40px;
+            animation: scale-bounce 2s infinite alternate, dvd-bounce 5s infinite;
+            position: relative;
+        }
+
+        @keyframes dvd-bounce {
+            0% {
+                top: 0;
+                left: 0;
+            }
+
+            25% {
+                top: 0;
+                left: 100%;
+            }
+
+            50% {
+                top: 100%;
+                left: 100%;
+            }
+
+            75% {
+                top: 100%;
+                left: 0;
+            }
+
+            100% {
+                top: 0;
+                left: 0;
+            }
+        }
+
+        @keyframes scale-bounce {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(3);
+            }
+        }
+
+        @keyframes color-change {
+            0% {
+                color: white;
+            }
+
+            50% {
+                color: gray;
+            }
+
+            100% {
+                color: white;
+            }
+        }
+
+        @keyframes color-theory {
+            0% {
+                color: red;
+            }
+
+            50% {
+                color: blue;
+            }
+
+            100% {
+                color: green;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes gradient-change {
+            0% {
+                background-color: red;
+            }
+
+            33% {
+                background-color: blue;
+            }
+
+            66% {
+                background-color: green;
+            }
+
+            100% {
+                background-color: red;
+            }
+        }
+
+        html {
+            animation: gradient-change 3s infinite linear;
+        }
+
+        h1,
+        #message-box,
+        label,
+        #grim-reaper-btn,
+        #never-click-btn,
+        #niko-btn,
+        #illuminati-btn {
+            animation: color-change 5s infinite;
+        }
+
+        #color-theory-header {
+            animation: color-theory 0.1s infinite;
+        }
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        input[type=checkbox]+label:before {
+            content: '\25a1';
+            margin-right: 0.5em;
+            display: inline-block;
+        }
+
+        input[type=checkbox]:checked+label:before {
+            content: '\2713';
+        }
+
+        #changing-radius-btn {
+            border-radius: 10px;
+            transition: border-radius 0.5s ease;
+        }
+
+        #message-box {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+        }
+
+        nav ul li {
+            padding: 14px 20px;
+        }
+
+        nav a {
+            color: #121212;
+            text-decoration: none;
+        }
+
+        .lorem {
+            animation: font-change 10s infinite;
+        }
+
+        .shadow-btn {
+            display: none;
+            position: absolute;
+            background: none;
+            border: none;
+            color: inherit;
+            font-size: 3em;
+        }
+
+        .show-text:hover .shadow-btn {
+            display: block;
+        }
+
+        textarea,
+        .no-type {
+            width: 100%;
+            height: 100px;
+        }
+
+        .no-type {
+            pointer-events: none;
+        }
+
+        #ascii-art {
+            font-family: monospace;
+            white-space: pre;
+            color: white;
+            background-color: black;
+            padding: 10px;
+        }
+
+        #deez-nuts {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: blink 0.5s infinite, random-move 1s infinite;
+        }
+
+        @keyframes random-move {
+            0% {
+                top: 50%;
+                left: 50%;
+            }
+
+            100% {
+                top: var(--random-top);
+                left: var(--random-left);
+            }
+        }
+
+        #footer-art {
+            color: green;
+        }
+
+        .ad-bar img {
+            margin: 10px;
+        }
+
+        #magic-text {
+            animation: magic-color-change 0.1s infinite;
+        }
+
+        @keyframes magic-color-change {
+            0% {
+                color: red;
+            }
+
+            50% {
+                color: blue;
+            }
+
+            100% {
+                color: green;
+            }
+        }
+
+        button:hover {
+            transform: rotate(10deg);
+        }
+
+        .hidden-on-hover:hover {
+            display: none;
+        }
+
+        .illuminati {
+            display: none;
+        }
+
+        .illuminati img {
+            display: inline-block;
+        }
+
+        .blurme:hover {
+            filter: blur(10px);
+            animation: sharpen 10s infinite alternate;
+        }
+
+        @keyframes sharpen {
+            from {
+                filter: grayscale(0%) blur(0px);
+            }
+
+            to {
+                filter: grayscale(100%) blur(0px);
+            }
+        }
+
+        p,
+        span {
+            transition: filter 0.3s ease;
+        }
+
+        p:hover,
+        span:hover {
+            filter: blur(5px);
+        }
+
+        .salvation-btn {
+            display: none;
+            animation: blink 0.5s infinite;
+        }
+
+        @keyframes grayscale {
+            to {
+                filter: grayscale(100%);
+            }
+        }
+
+        #red-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            z-index: 1000;
+            animation: blink 0.5s infinite;
+        }
+
+        .red-pulse {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            animation: pulse 1s infinite alternate;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            border-radius: 50%;
+            z-index: 1001;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.5);
+            }
+        }
+
+        #random-bible-btn {
+            margin-top: 10px;
+        }
+
+        #rainbow-div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            animation: rainbow-color-change 5s infinite;
+            position: absolute;
+            z-index: 9999;
+        }
+
+        @keyframes rainbow-color-change {
+            0% {
+                background-color: red;
+            }
+
+            16.67% {
+                background-color: orange;
+            }
+
+            33.33% {
+                background-color: yellow;
+            }
+
+            50% {
+                background-color: green;
+            }
+
+            66.67% {
+                background-color: blue;
+            }
+
+            83.33% {
+                background-color: indigo;
+            }
+
+            100% {
+                background-color: violet;
+            }
+        }
+
+        #detonate {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='rainbow-div'></div>
+    <div class='red-pulse'></div>
+    <footer><img src='/images/giant_feet.png' alt='Stocking' class='fade-on-hover' /><br>
+        <p id='footer-art'>Get your random content here!</p>
+    </footer>
+    <div id='deez-nuts'>DEEZ NUTS</div>
+    <div id='ascii-art'>_______ _______ _______ ( ___ )( ____ \( ____ \ | ( ) || ( \/| ( \/ | | | || (__ | (__ | | | ||
+        ___) | ___) | | | || ( | ( | (___) || (____/\| (____/\ (_______)(_______/(_______/ DEEZ NUTS</div><input
+        class='no-type' placeholder='Try typing, lol...' readonly /><textarea
+        onclick="this.value='I love feet so much'; this.blur();"></textarea>
+    <div class='illuminati'><img src='/images/placeholder.gif' alt='Illuminati logo' /><span>We know</span><img
+            src='/images/placeholder.gif' alt='Illuminati logo' /></div><button id='illuminati-btn'
+        onclick="document.querySelector('.illuminati').innerHTML='pukay-narua 197810'; document.querySelector('.illuminati').style.display='block';">Illuminati</button><button
+        class='show-text'>Show Me Magic<span class='shadow-btn'>SHADOW197810</span></button>
+    <div class='embed-ad'><img src='/images/ant_eater.png' alt='Ad' class='hidden-on-hover' /></div>
+    <div>
+        <p class='lorem blurme'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class='blurme'>This website is such a font party every 10 seconds.</p>
+    </div>
+    <div id='trash-container' class='hidden'><img src='/images/art_ocho_goblin.png' alt='Trash' /></div><button
+        id='niko-btn' onclick='showTrash()'>Niko</button><button id='never-click-btn' disabled>Never Click
+        Me</button><button id='changing-radius-btn'>Watch My Corners Change</button><button id='grim-reaper-btn'>No
+        Humans Here!</button>
+    <p class='blurme'>A smidgeon of lorem ipsum here.</p>
+    <div><input type='checkbox' id='good' onclick="toggleCheckbox('good')" /><label for='good'>Good</label><input
+            type='checkbox' id='cheap' onclick="toggleCheckbox('cheap')" /><label for='cheap'>Cheap</label><input
+            type='checkbox' id='fast' onclick="toggleCheckbox('fast')" /><label for='fast'>Fast</label></div><button
+        id='almighty-btn' onclick="document.body.style.transform = 'scaleY(-1)';">Almighty</button><img id='panda-image'
+        src='/images/art_panda.png' alt='Epic Panda Art' class='hidden-on-hover' /><br>
+    <h1 id='color-theory-header'>COLOUR THEORY</h1>
+    <div id='message-box'>Welcome to the Circus of Checkboxes!</div>
+    <div id='red-screen'></div>
+    <nav>
+        <ul>
+            <li><a href='#home'>Home</a></li>
+            <li><a href='#panda'>Panda</a></li>
+            <li><a href='#cult'>Cult Information</a></li>
+            <li><a href='#banana'>Banana Zone</a></li>
+        </ul>
+    </nav>
+    <div>Time until the FEET: <span id='countdown'>7200</span> seconds</div><button id='detonate'
+        onclick='clearInterval(countdownInterval);'>DETONATE</button>
+    <script>let countdownInterval = setInterval(() => { countdown--; document.getElementById('countdown').innerHTML = countdown; if (countdown % 0.1 === 0) { document.getElementById('ascii-art').innerHTML += ' FEET'; } }, 100); document.getElementById('red-screen').style.display = 'block'; setTimeout(() => { document.getElementById('red-screen').style.display = 'none'; }, 10000); function toggleCheckbox(clickedId) { const checkboxes = ['good', 'cheap', 'fast']; const checked = checkboxes.filter(id => document.getElementById(id).checked); document.getElementById('never-click-btn').disabled = checked.length < 2; if (checked.length > 2) { const uncheckedId = clickedId === checked[0] ? checked[1] : checked[0]; document.getElementById(uncheckedId).checked = false; } } setInterval(() => { const elements = document.querySelectorAll('*'); elements.forEach(el => { if (Math.random() > 0.5) { el.style.color = '#' + Math.floor(Math.random() * 16777215).toString(16); el.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16); } }); }, 1500); setInterval(() => { const lorem = document.querySelectorAll('.lorem'); lorem.forEach(el => { el.style.fontSize = parseInt(getComputedStyle(el).fontSize) + 1 + 'px'; }); }, 1000); function paintBucket() { document.body.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16); } function showTrash() { document.getElementById('trash-container').style.display = 'block'; } let lastMousePos = { x: 0, y: 0 }; document.onmousemove = function (event) { if (Math.abs(event.clientX - lastMousePos.x) > 150 || Math.abs(event.clientY - lastMousePos.y) > 150) { const elements = document.querySelectorAll('*'); const randomElement = elements[Math.floor(Math.random() * elements.length)]; randomElement.style.transform = `scaleX(-1)`; lastMousePos = { x: event.clientX, y: event.clientY }; } }; setInterval(() => { const rndx = Math.floor(Math.random() * window.innerWidth); const rndy = Math.floor(Math.random() * window.innerHeight); const randomPixel = document.elementFromPoint(rndx, rndy); if (randomPixel) randomPixel.style.color = '#' + Math.floor(Math.random() * 16777215).toString(16); }, 200); const fadeOnHover = document.querySelector('.fade-on-hover'); fadeOnHover.addEventListener('mouseover', function () { this.style.transition = 'opacity 0.5s'; this.style.opacity = '0.5'; }, false); fadeOnHover.addEventListener('mouseout', function () { this.style.opacity = '1'; }, false); function getRandomPosition() { const randomTop = `calc(50% + ${Math.random() * 100 - 50}%)`; const randomLeft = `calc(50% + ${Math.random() * 100 - 50}%)`; document.documentElement.style.setProperty('--random-top', randomTop); document.documentElement.style.setProperty('--random-left', randomLeft); } setInterval(getRandomPosition, 5000); getRandomPosition();</script>
+</body>
+
+</html>
